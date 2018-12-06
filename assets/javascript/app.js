@@ -1,6 +1,6 @@
   // Initialize Firebase
   var config = {
-    // apiKey: "AIzaSyAArwNnGfJs-aBJyUmBYh1jQrlL7jI3bZ4",
+    apiKey: "AIzaSyAArwNnGfJs-aBJyUmBYh1jQrlL7jI3bZ4",
     authDomain: "taylor-train-scheduler.firebaseapp.com",
     databaseURL: "https://taylor-train-scheduler.firebaseio.com",
     projectId: "taylor-train-scheduler",
@@ -36,7 +36,7 @@
     console.log(trainX.formtrain);
     console.log(trainX.formdestination);
     console.log(trainX.formfrequency);
-    console.log(trainX.formfirsttime);
+    console.log(trainX.formstoptime);
     console.log(trainX.dateAdded);
 
   $("#input-train").val("");
@@ -46,7 +46,7 @@
 
 });
 
-database.ref().on("child_added", function(childSnapshot, prevChildKey){
+database.ref().on("child_added", function(childSnapshot){
     var train = childSnapshot.val().formtrain;
     var destination = childSnapshot.val().formdestination;
     var stopFreq = childSnapshot.val().formfrequency;
